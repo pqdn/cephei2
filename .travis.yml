@@ -1,0 +1,16 @@
+#Travis CI
+language: java
+
+jdk:
+  - oraclejdk8
+
+notifications:
+  slack:
+    on_success: never
+    on_failure: never
+
+before_script:
+  - ./gradlew install -DskipTests=true -B -V
+
+script:
+  - ./gradlew test -B
